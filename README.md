@@ -1,7 +1,5 @@
 
-
-
-Live Demo: [Insert your Netlify Live Link Here]
+Live Demo: https://neo-malesa-bstrap-portfolio.netlify.app/
 
 This repository contains the source code for my personal portfolio website, submitted for the Website Designer role assignment.
 
@@ -71,9 +69,14 @@ Shadows and thick borders are stripped from the "About Me" card.
 
 The result is a flawlessly formatted, minimalist, black-and-white 1-page paper résumé generated directly from the live website. It prints best in landscape.
 
-## Built With
 
-git HTML5: Semantic tags utilized (<header>, <nav>, <main>, <section>, <footer>).
+## Image credits 
+All images used in the projects grids for this portfolio are royalty-free and sourced from Unsplash.
+
+
+##
+
+#HTML5: Semantic tags utilized (<header>, <nav>, <main>, <section>, <footer>).
 
 CSS3: Custom CSS variables (:root), Flexbox, Grid, CSS Transitions, and Media Queries.
 
