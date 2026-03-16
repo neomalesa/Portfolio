@@ -11,7 +11,7 @@ Here is a technical breakdown of how I built this project from the header to the
 
 
 
-## The Header & Hero Section (The Hook)
+## The Header & Hero Section
 
 
 The Navbar: I utilized Bootstrap's .navbar and .sticky-top classes to create a fixed header. Because JavaScript was strictly forbidden, I bypassed standard toggle menus and used Bootstrap's Flexbox utilities (.d-flex, .justify-content-between, .d-sm-flex) to manage the layout.
@@ -22,7 +22,7 @@ The Hero Background: I set the section to 100vh to guarantee it fills the viewpo
 
 Accessibility: I implemented a .skip-link class that is hidden off-screen (top: -50px) but gracefully slides into view when navigating via keyboard (:focus), ensuring WCAG compliance.
 
-## The About Me Card (The Profile)
+## The About Me Card 
 
 
 
@@ -33,7 +33,7 @@ Styling: I applied (solid) borders and completely removed standard soft shadows 
 Imagery & Badges: The profile image utilizes a CSS filter: grayscale to sliglty match the theme. The tech stack badges use custom CSS variables to maintain strict color hierarchy.
 
 
-## The Projects Grid (The Work)
+## The Projects Grid 
 
 
 Responsive Grid: Instead of using a JavaScript masonry library, I leveraged Bootstrap's highly efficient row-cols utility classes (.row-cols-1 .row-cols-md-2 .row-cols-lg-3). This tells the browser to automatically render 1 column on mobile, 2 on tablets, and 3 on large desktop screens. I used .g-4 and .g-5 gutter classes to keep the spacing airy and consistent.
@@ -42,7 +42,7 @@ Card Interactions: Each card uses object-fit: cover to ensure images never warp.
 
 
 
-## The Contact Section (The CTA)
+## The Contact Section 
 
 Goal: Provide a clean, functional communication channel.
 
@@ -57,7 +57,7 @@ High-contrast footer.
 I used a dark background color and specific HTML <span> targeting to highlight my name against the muted grey text.
 
 
-## Bonus Feature: Print-Ready Résumé View
+## Bonus Feature: Print-Ready Resume View
 
 I successfully implemented the Print-Ready Résumé bonus requirement.
 
@@ -73,7 +73,7 @@ The result is a flawlessly formatted, minimalist, black-and-white 1-page paper r
 
 ## Built With
 
-HTML5: Semantic tags utilized (<header>, <nav>, <main>, <section>, <footer>).
+git HTML5: Semantic tags utilized (<header>, <nav>, <main>, <section>, <footer>).
 
 CSS3: Custom CSS variables (:root), Flexbox, Grid, CSS Transitions, and Media Queries.
 
