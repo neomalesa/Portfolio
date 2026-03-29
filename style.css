@@ -1,3 +1,37 @@
+/* =========================================
+   CSS VARIABLES & THEMING (STARK MONOCHROME)
+   ========================================= */
+:root {
+    --bg-color: #f2f2f2;
+    --text-main: #000000;
+    --text-muted: #555555;
+    --card-bg: #ffffff;
+    --accent: #000000; 
+    --accent-hover: #444444;
+    --nav-bg: rgba(242, 242, 242, 0.9);
+    --highlight-bg: #e0e0e0;
+    --highlight-text: #000000;
+    --border-color: #d1d1d1;
+    --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.05);
+    --radius-card: 8px;
+    --radius-btn: 0px; 
+}
+
+/*@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0a0a0a;
+        --text-main: #ffffff;
+        --text-muted: #999999;
+        --card-bg: #111111;
+        --accent: #ffffff;
+        --accent-hover: #cccccc;
+        --nav-bg: rgba(10, 10, 10, 0.9);
+        --highlight-bg: #222222;
+        --highlight-text: #ffffff;
+        --border-color: #2a2a2a;
+        --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+}*/
 
 /* =========================================
    GLOBAL STYLES & TYPOGRAPHY
@@ -15,7 +49,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Massive, wide, uppercase headings */
 h1, h2, h3, h4, h5, h6, .brand-logo {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
@@ -33,9 +66,8 @@ a:hover {
     color: var(--accent-hover);
 }
 
-
 /* =========================================
-   NAVIGATION
+   NAVIGATION (Fixed Top)
    ========================================= */
 .navbar {
     background-color: var(--nav-bg);
@@ -47,14 +79,13 @@ a:hover {
 .brand-logo {
     font-size: 3.5rem;
     font-weight: 800;
-   
 }
 
 .nav-link {
     color: var(--text-main) !important;
     font-family: 'Syne', sans-serif;
     font-weight: 600;
-    font-size: 1 rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-left: 2.5rem;
@@ -62,56 +93,102 @@ a:hover {
     padding: 0.5rem 0 !important;
 }
 
-/* solid underlines for the links  */
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 3px;
     bottom: 0;
-    left: 50%; /* Start from the center */
+    left: 50%;
     transform: translateX(-50%); 
     background-color: var(--accent);
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-link:hover::after,
 .nav-link:focus::after {
-    width: 50%; /* Shortened active line */
+    width: 50%;
 }
-
-/* TAKES YOU TO THE LOCATION IN THE WEB PAGE  */
-.skip-link {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    background: var(--accent);
-    color: var(--bg-color);
-    padding: 10px 15px;
-    z-index: 10000;
-    transition: top 0.2s;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-}
-.skip-link:focus {
-    top: 0;
-}
-
 
 /* =========================================
-   HERO SECTION
+   CINEMATIC SEQUENCE (SPLASH & HERO)
    ========================================= */
-.hero {
+
+/* 1. The Splash Screen (Now uses smooth CSS transitions) */
+#scroll-splash {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
     height: 100vh;
-    min-height: 600px;
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    /* The physics of the fade out */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out, filter 1.5s ease-in-out;
+}
+
+/* The class JS will add to trigger the fade */
+#scroll-splash.dissolve {
+    opacity: 0;
+    transform: scale(1.05);
+    filter: brightness(2) blur(8px);
+    pointer-events: none;
+}
+
+.splash-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 12vw, 8rem);
+    letter-spacing: 4px;
+    color: #ffffff;
+    margin: 0;
+    animation: pulse 1.5s infinite alternate ease-in-out; 
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* 2. Reduced from 300vh to 200vh since splash is mouse-triggered */
+.hero-scroll-container {
+    height: 100vh; /* keeps scroll room for the subtitle animation */
     position: relative;
+}
+
+.hero-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('./IMG_2968\ 3.jpg');
+    overflow: hidden;
+    background-image: url('./IMG_2968\ 3.jpg'); /* ← moved here */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .hero-overlay {
@@ -133,6 +210,7 @@ a:hover {
     width: 100%;
 }
 
+/* 3. The Main Title (Starts hidden, smoothly floats up) */
 .hero-title {
     font-size: clamp(3rem, 9vw, 8rem); 
     font-weight: 800;
@@ -140,14 +218,27 @@ a:hover {
     margin-bottom: 1rem;
     letter-spacing: -0.04em;
     color: #d6c38f;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* The class JS will add to trigger the title */
+.hero-title.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 4. Subtitle remains scroll-driven */
 .hero-subtitle {
     font-size: clamp(0.9rem, 1.5vw, 1.2rem);
     font-weight: 400;
     letter-spacing: 5px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transform: translateX(100vw); 
+    will-change: transform, opacity;
 }
 
 /* =========================================
@@ -172,8 +263,8 @@ a:hover {
 
 .btn-primary-custom {
     background-color: var(--text-main);
-    color: var(--bg-color) !important;
-    border: 2px solid; 
+    color: black;
+    border: 2px solid var(--text-main); 
     padding: 0.8rem 2rem;
     border-radius: var(--radius-btn);
     font-family: 'Syne', sans-serif;
@@ -187,7 +278,6 @@ a:hover {
     background-color: transparent;
     color: var(--text-main) !important;
 }
-
 
 .btn-outline-custom {
     background-color: transparent;
@@ -208,11 +298,20 @@ a:hover {
    ABOUT ME CARD
    ========================================= */
 .about-card {
-    background-color: var(--card-bg);
+background-color: rgba(var(--bg-color-rgb, 242, 242, 242), 0.8) !important;
+    
+    /* 2. Add Backdrop Filter for the frosted glass effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* 3. Soften the shadow to blend with the dark background */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    
+    /* 4. Ensure the border is subtle */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
     border-radius: 30px;
-    box-shadow:  0 15px 35px rgba(146, 135, 111, 0.759);
     overflow: hidden;
-    border:0.1px solid var(--border-color);
 }
 
 .profile-img {
@@ -244,7 +343,6 @@ a:hover {
     font-size: 1.1rem;
 }
 
-
 .about-text {
     color: var(--text-muted);
     font-size: 1.15rem;
@@ -266,7 +364,6 @@ a:hover {
     transform: translateY(-4px);
     opacity: 1;
 }
-
 
 /* =========================================
    PROJECTS GRID
@@ -323,7 +420,6 @@ a:hover {
     margin-top: auto;
     display: flex;
     gap: 10px;
-    
 }
 
 /* =========================================
@@ -349,7 +445,6 @@ a:hover {
     color: var(--bg-color);
 }
 
-/* Input Fields */
 .form-control {
     background-color: transparent;
     border: none;
@@ -364,7 +459,7 @@ a:hover {
     background-color: transparent;
     color: var(--text-main);
     border-color: var(--accent);
-    box-shadow: none; /* Removed bootstrap glow for edgy look */
+    box-shadow: none; 
 }
 .form-label {
     font-family: 'Syne', sans-serif;
@@ -381,95 +476,231 @@ a:hover {
    ========================================= */
 .footer {
     background-color: #000000;
-    color: #928e74;
-    padding: 4rem 0;
+    color: #928e74; 
+    padding: 2rem 0;
     text-align: center;
     font-size: 0.85rem;
     letter-spacing: 1px;
+}
+.footer p {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: grey;
 }
 .footer span {
     color: #c4c3c3;
     font-weight: 700;
 }
 
+.footer .text-muted {
+    color: #928e74 !important; 
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
 /* =========================================
-   BONUS: PRINT READY RESUME
+   PRINT READY RESUME
    ========================================= */
 @media print {
     body { background: white; color: black; }
-    .hero, .navbar, #projects, #contact, .footer { display: none !important; }
+    .hero-scroll-container, .navbar, #projects, #contact, .footer, #scroll-splash { display: none !important; }
     #about { padding: 0 !important; }
     .about-card { box-shadow: none; border: none; }
     .pale-highlight { border: 1px solid #000; background: transparent; color: black; }
-    .skill-badge { border: 1px solid #000; background: transparent; color: black; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #0a0a0a;
-        --text-main: #ffffff;
-        --text-muted: #999999;
-        --card-bg: #111111;
-        --accent: #ffffff;
-        --accent-hover: #cccccc;
-        --nav-bg: rgba(10, 10, 10, 0.9);
-        --highlight-bg: #222222;
-        --highlight-text: #ffffff;
-        --border-color: #2a2a2a;
-        --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.4);
+/* =========================================
+   RESPONSIVE DESIGN & MOBILE FIXES
+   ========================================= */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .section-padding {
+        padding: 100px 0;
+    }
+    .brand-logo {
+        font-size: 2.5rem; 
+    }
+    .project-img {
+        height: 220px; 
     }
 }
 
-:root {
-    --bg-color: #f2f2f2;
-    --text-main: #000000;
-    --text-muted: #555555;
-    --card-bg: #ffffff;
-    --accent: #000000; 
-    --accent-hover: #444444;
-    --nav-bg: rgba(242, 242, 242, 0.9);
-    --highlight-bg: #e0e0e0;
-    --highlight-text: #000000;
-    --border-color: #d1d1d1;
-    --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.05);
-    --radius-card: 8px;
-    --radius-btn: 0px; /* Brutalist sharp edges */
+@media (max-width: 767px) {
+    .section-padding {
+        padding: 80px 0; 
+    }
+    .brand-logo {
+        font-size: 1.8rem; 
+    }
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3.5rem); 
+        line-height: 1.1;
+        word-wrap: break-word; 
+    }
+    .hero-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+    .about-card {
+        padding: 2rem 1.5rem !important; 
+        border-radius: 20px; 
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1.5rem;
+    }
+    .navbar-nav {
+        background-color: var(--card-bg);
+        padding: 1rem;
+        border-radius: var(--radius-card);
+        border: 1px solid var(--border-color);
+        width: 100%;
+        margin-top: 15px;
+        box-shadow: var(--shadow-sm);
+    }
+    .nav-link {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0 !important; 
+    }
+    .nav-link::after {
+        display: none; 
+    }
+    .splash-logo {
+        font-size: clamp(1.8rem, 8vw, 3rem); 
+        letter-spacing: 2px; 
+        width: 100%;
+        text-align: center;
+        padding: 0 15px; 
+    }
 }
 
+@media (max-width: 350px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .brand-logo {
+        font-size: 1.5rem;
+    }
+}
 
 /* =========================================
-   CSS VARIABLES 
-   STARK MONOCHROME PALETTE
+   BORDERLESS PILL TOGGLE MENU
    ========================================= */
-:root {
-    --bg-color: #f2f2f2;
-    --text-main: #000000;
-    --text-muted: #555555;
-    --card-bg: #ffffff;
-    --accent: #000000; 
-    --accent-hover: #444444;
-    --nav-bg: rgba(242, 242, 242, 0.9);
-    --highlight-bg: #e0e0e0;
-    --highlight-text: #000000;
-    --border-color: #d1d1d1;
-    --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.05);
-    --radius-card: 8px;
-    --radius-btn: 0px; 
+.toggle-pill-btn {
+    border: none !important;
+    background: transparent !important;
+    padding: 4px !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #0a0a0a;
-        --text-main: #ffffff;
-        --text-muted: #999999;
-        --card-bg: #111111;
-        --accent: #ffffff;
-        --accent-hover: #cccccc;
-        --nav-bg: rgba(10, 10, 10, 0.9);
-        --highlight-bg: #222222;
-        --highlight-text: #ffffff;
-        --border-color: #2a2a2a;
-        --shadow-sm: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
+/* 2. The Inner Track (The actual pill shape) */
+.toggle-track {
+    width: 38px;
+    height: 20px;
+    background: rgba(var(--text-main-rgb), 0.1); /* Subtle visibility */
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid var(--border-color); /* Kept on track for definition */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* 3. The Sliding Thumb */
+.toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--text-main);
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* --- Active State (When menu is open) --- */
+
+.toggle-pill-btn:not(.collapsed) .toggle-thumb {
+    transform: translateX(18px);
+    background-color: #d6c38f; /* Your signature gold */
+}
+
+.toggle-pill-btn:not(.collapsed) .toggle-track {
+    background: rgba(214, 195, 143, 0.15);
+    border-color: #d6c38f;
+}
+
+/* 4. Kill the focus ring for good */
+.toggle-pill-btn:focus, 
+.toggle-pill-btn:active,
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+/* [SECTION: Color Variables with RGB for Blending] */
+:root {
+    --bg-color: #f2f2f2;
+    --bg-color-rgb: 242, 242, 242; /* Light Mode RGB */
+    --text-main: #000000;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* [BLOCK: Selected Works Label Update] */
+.pale-highlight {
+    display: inline-block;
+    /* 1. Set text to pure white or theme light color */
+    color: #ffffff !important; 
+    
+    /* 2. Optional: Adjust background to be transparent or a darker grey 
+       to make the white text pop against the light grey section */
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#form-success {
+    display: none;
+    padding: 1.2rem 1.8rem;
+    border-left: 3px solid var(--accent);
+    background-color: var(--highlight-bg);
+    color: var(--text-main);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+
+
+.tech-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+    filter: brightness(0); /* forces black in light mode */
+}
+
+/*@media (prefers-color-scheme: dark) {
+    .tech-icon {
+        filter: brightness(0) invert(1); 
+    }
+}*/

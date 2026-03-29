@@ -3,43 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>NeoStack</title>
+    
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- faviicon -->
-
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="NeoStack" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-
-    <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- font for the logo, header and grid cards -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-
-
-
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg">
+    <link rel="shortcut icon" href="./favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="NeoStack">
+    <link rel="manifest" href="./favicon/site.webmanifest">
 </head>
 
 <body>
 
-    <!-- =======================================================================
-             HEADER SECTION
-             ======================================================================= -->
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand">
+    <div id="scroll-splash">
+        <h2 class="splash-logo">NeoStack</h2>
+        <div class="scroll-indicator">
+            .<br>
+            
+        </div>
+    </div>
+
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-md">
             <div class="container d-flex justify-content-between align-items-center">
                 <a class="navbar-brand brand-logo m-0" href="#">NeoStack</a>
                 
-                <div class="d-none d-sm-flex">
-                    <ul class="navbar-nav flex-row">
+                <button class="navbar-toggler toggle-pill-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <div class="toggle-track">
+                        <span class="toggle-thumb"></span>
+                    </div>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center mt-4 mt-md-0">
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+                
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center mt-4 mt-md-0 gap-3 gap-md-0">
                         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
@@ -52,22 +66,16 @@
 
     <main>
 
-        <!-- =======================================================================
-             HERO SECTION
-             ======================================================================= -->
-
-        <section id="home" class="hero">
-            <div class="hero-overlay"></div>
-
-            <div class="hero-content container">
-                <h1 class="hero-title">I am<br>Neo Malesa</h1>
-                <p class="hero-subtitle">Junior Developer | Final Year CS Student  </p>
+        <section id="home" class="hero-scroll-container">
+            <div class="hero-sticky">
+                <div class="hero-overlay"></div>
+                <div class="hero-content container">
+                    <h1 class="hero-title">I am<br>Neo Malesa</h1>
+                    <p id="scroll-subtitle" class="hero-subtitle">Junior Developer | Final Year CS Student</p>
+                </div>
             </div>
         </section>
         
-        <!-- =======================================================================
-             ABOUT ME CARD 
-             ======================================================================= -->
         <section id="about" class="section-padding">
             <div class="container">
                 <div class="row justify-content-center">
@@ -75,43 +83,47 @@
                         <div class="about-card p-4 p-md-5">
                             <div class="row g-5 align-items-center">
                                 
-                                <!-- Left Column: Profile & Contact -->
                                 <div class="col-md-5 col-lg-4 pe-md-5">
                                     <div class="d-flex justify-content-center justify-content-md-start">
-                                        <img src="./IMG_2657 2.jpeg" alt="Neo Malesa profle image" class="profile-img">
+                                        <img src="./IMG_2657 2.jpeg" alt="Neo Malesa profile image" class="profile-img">
                                     </div>
-                                    
                                     
                                     <ul class="contact-list mb-5">
                                         <li><i class="bi bi-briefcase"></i> Software Developer</li>
                                         <li><i class="bi bi-telephone"></i> +27 61 480 0770</li>
-                                        <li><i class="bi bi-envelope"></i> neomalesa.zaio@gmail.com</li>
+                                        <li><i class="bi bi-envelope"></i> w.neomalesa@gmail.com</li>
                                         <li><i class="bi bi-geo-alt"></i> Johannesburg, ZA</li>
                                     </ul>
 
                                     <div>
                                         <h6 class="form-label mb-3">Tech Stack</h6>
                                         <div class="d-flex flex-wrap justify-content-start align-items-center mt-3">
-                                            <img src="https://cdn.simpleicons.org/html5/000000" alt="HTML5" class="tech-icon" title="HTML5">
-                                            
-                                            <img src="https://cdn.simpleicons.org/css/000000" alt="CSS3" class="tech-icon" title="CSS3">
-                                            
-                                            <img src="https://cdn.simpleicons.org/bootstrap/000000" alt="Bootstrap" class="tech-icon" title="Bootstrap">
-                                            
-                                            <img src="https://api.iconify.design/mdi:language-java.svg" alt="Java" class="tech-icon" title="Java">
-                                            <img src="https://cdn.simpleicons.org/cplusplus/000000" alt="C++" class="tech-icon" title="C++">
-                                            <img src="https://cdn.simpleicons.org/git/000000" alt="Git" class="tech-icon" title="Git">
-                                            <img src="https://cdn.simpleicons.org/python/000000" alt="Python" class="tech-icon" title="Python">
+                                            <img src="https://cdn.simpleicons.org/html5/888888" alt="HTML5" class="tech-icon" title="HTML5">
+                                            <img src="https://cdn.simpleicons.org/css/888888" alt="CSS3" class="tech-icon" title="CSS3">
+                                            <img src="https://cdn.simpleicons.org/bootstrap/888888" alt="Bootstrap" class="tech-icon" title="Bootstrap">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="tech-icon" title="Java">
+
+                                            <img src="https://cdn.simpleicons.org/cplusplus/888888" alt="C++" class="tech-icon" title="C++">
+                                            <img src="https://cdn.simpleicons.org/git/888888" alt="Git" class="tech-icon" title="Git">
+                                            <img src="https://cdn.simpleicons.org/python/888888" alt="Python" class="tech-icon" title="Python">
+                                            <svg class="tech-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--text-main)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="Digital Signal Processing">
+                                                <path d="M2 12c3-8 5-8 8 0s5 8 8 0"></path>
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- About Me Text -->
                                 <div class="col-md-7 col-lg-8 ps-md-4 border-md-start border-color text-start">
                                     <span class="pale-highlight">About me</span>
-                                    <h2 class="mb-4 display-6"> Neo Malesa</h2>
-                                    <p class="about-text">
-                                       I am a final year Mathematical Sciences student at the University of Johannesburg, majoring in Applied Mathematics and Computer Science. I am interested in software development, algorithms, and building practical technology solutions. My work focuses on writing clean, efficient code and understanding how systems work at both a theoretical and implementation level. I enjoy exploring different areas of computing, from low-level programming and data structures to modern development tools and workflows.
+                                    <h2 class="mb-4 display-6">Neo Malesa</h2>
+                                    
+                                    <p class="about-text d-none d-md-block">
+                                        I am a final year Mathematical Sciences student at the University of Johannesburg, majoring in Applied Mathematics and Computer Science. I am interested in software development, optimization techniques, and building practical technology solutions. I specialize in translating mathematical models into efficient code, with a growing interest in Digital Signal Processing, Audio Engineering and Scalable Data Systems. My background ranges from working with delivery-only digital solutions to low-level programming, always with a focus on writing code that is as elegant as the logic behind it.
+                                    </p>
+
+                                    <p class="about-text d-md-none">
+                                        Final year CS & Applied Math student at UJ. I specialize in translating complex mathematical models into efficient code, with a heavy focus on Digital Signal Processing, optimization, and scalable software solutions.
+                                    </p>
                                 </div>
 
                             </div>
@@ -128,15 +140,13 @@
                     <h2 class="display-4">Featured<br>Projects.</h2>
                 </div>
 
-                <!-- CSS Grid System: 3 lg, 2 md, 1 sm -->
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-xl-5">
                     
-                    <!-- Project 1: Tesla -->
                     <div class="col">
                         <div class="project-card">
                             <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop" alt="Tesla Landing Page" class="project-img">
                             <div class="project-body">
-                                <h3 class="project-title">Tesla Page </h3>
+                                <h3 class="project-title">Tesla Page</h3>
                                 <p class="project-subtitle">HTML | CSS</p>
                                 <div class="project-footer">
                                     <a href="https://neomalesa-ecars.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
@@ -146,7 +156,6 @@
                         </div>
                     </div>
 
-                    <!-- Project 2: Netflix -->
                     <div class="col">
                         <div class="project-card">
                             <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=800&auto=format&fit=crop" alt="Netflix UI" class="project-img">
@@ -161,10 +170,9 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: YouTube -->
                     <div class="col">
                         <div class="project-card">
-                            <img src="https://images.unsplash.com/photo-1521302200778-33500795e128?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8eW91dHViZXxlbnwwfHwwfHx8MA%3D%3D" alt="YouTube Layout" class="project-img">
+                            <img src="https://images.unsplash.com/photo-1521302200778-33500795e128?w=900&auto=format&fit=crop&q=60" alt="YouTube Layout" class="project-img">
                             <div class="project-body">
                                 <h3 class="project-title">YouTube Page</h3>
                                 <p class="project-subtitle">HTML | CSS</p>
@@ -176,43 +184,32 @@
                         </div>
                     </div>
 
-                    <!-- Project 4: Studio Arch -->
                     <div class="col">
                         <div class="project-card">
-                            <img src="https://images.unsplash.com/photo-1728044849321-4cbffc50cc1d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cmVzdGF1cmFudCUyMHBvc3xlbnwwfHwwfHx8MA%3D%3D" alt="Architecture Portfolio" class="project-img">
+                            <img src="https://images.unsplash.com/photo-1728044849321-4cbffc50cc1d?w=900&auto=format&fit=crop&q=60" alt="Architecture Portfolio" class="project-img">
                             <div class="project-body">
                                 <h3 class="project-title">Studio Arch.</h3>
                                 <p class="project-subtitle">HTML | CSS | NODE.JS</p>
-                                <div class="project-footer">
-                                    <a href="#" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
-                                    <a href="#" class="btn btn-outline-custom" aria-label="View Code"><i class="bi bi-code-slash"></i></a>
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 5: Fake detector  -->
                     <div class="col">
                         <div class="project-card">
-                            <img src="https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBhaW50aW5nfGVufDB8fDB8fHww" alt="Lumiere E-Commerce" class="project-img">
+                            <img src="https://images.unsplash.com/photo-1637710945840-be1536185849?q=80&w=3266&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Audio W" class="project-img">
                             <div class="project-body">
-                                <h3 class="project-title">Fake Detector (artwork)</h3>
-                                <p class="project-subtitle">JAVA | JAVAFX</p>
-                                <div class="project-footer">
-                                    <a href="#" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
-                                    <a href="#" class="btn btn-outline-custom" aria-label="View Code"><i class="bi bi-code-slash"></i></a>
-                                </div>
+                                <h3 class="project-title">Onyx core</h3>
+                                <p class="project-subtitle">YAML | CamillaDSP | CoreAudio | Biquad Math</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 6: X -->
                     <div class="col">
                         <div class="project-card">
-                            <img src="https://images.unsplash.com/photo-1566241477600-ac026ad43874?q=80&w=2292&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="twitter/x landing page" class="project-img">
+                            <img src="https://images.unsplash.com/photo-1566241477600-ac026ad43874?q=80&w=2292&auto=format&fit=crop" alt="twitter/x landing page" class="project-img">
                             <div class="project-body">
                                 <h3 class="project-title">Twitter/ X Page</h3>
-                                <p class="project-subtitle">HTML | CSS | javascript</p>
+                                <p class="project-subtitle">HTML | CSS | JS</p>
                                 <div class="project-footer">
                                     <a href="https://neo-malesa-twitter.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
                                     <a href="https://github.com/neomalesa/Twitter-Landing-Page.git" class="btn btn-outline-custom" aria-label="View Code"><i class="bi bi-code-slash"></i></a>
@@ -233,7 +230,6 @@
                         <h2 class="display-5 mb-4">Let's connect.</h2>
                         <p class="text-muted fs-5 mb-5">Currently accepting freelance work and full-time opportunities. Drop a line.</p>
                         
-                        <!-- Social Icons -->
                         <div class="social-icons">
                             <a href="https://www.tiktok.com/@malesa.n?_r=1&_t=ZS-94jr2m7e4mo" aria-label="tiktok"><i class="bi bi-tiktok"></i></a>
                             <a href="https://www.instagram.com/_neo_stack?igsh=MWJ3bWZxdWtrc3N0YQ%3D%3D&utm_source=qr" aria-label="instagram"><i class="bi bi-instagram"></i></a>
@@ -243,50 +239,158 @@
                     </div>
                 </div>
 
-                <!-- Contact Form --> 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="about-card p-4 p-md-5 border-0">
-                            <form action="#" method="POST">
-                                <div class="row g-5">
-                                    <div class="col-md-6">
-                                        <label for="name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="John Doe" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="subject" class="form-label">Subject</label>
-                                        <input type="text" class="form-control" id="subject" placeholder="Project Inquiry" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="message" class="form-label">Message</label>
-                                        <textarea class="form-control border-bottom" id="message" rows="3" placeholder="Tell me about your project..." style="resize: none;" required></textarea>
-                                    </div>
-                                    <div class="col-12 text-start mt-5">
-                                        <button type="submit" class="btn btn-primary-custom px-5 py-3">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+    <div class="col-lg-12">
+        <div class="about-card p-4 p-md-5 border-0">
+            <form action="https://formspree.io/f/xeepavrb" method="POST">
+                <div class="row g-5">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Project Inquiry" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control border-bottom" id="message" name="message" rows="3" placeholder="Tell me about your project..." style="resize: none;" required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <div id="form-success"></div>
+                    </div>
+                    <div class="col-12 text-start">
+                        <button type="submit" class="btn btn-primary-custom px-5 py-3">Send Message</button>
                     </div>
                 </div>
-
+            </form>
+        </div>
+    </div>
+</div>
             </div>
+            
         </section>
-
     </main>
     
-     <!-- =======================================================================
-         FOOTER 
-         Dark footer, tiny centered text
-         ======================================================================= -->
     <footer class="footer">
-        <div class="container">
-            <p class="mb-0">Developed by <span>Neo Malesa</span> using Bootstrap, for portfolio purposes.</p>
+        <div class="container text-center">
+            <p class="mb-0 text-muted">Developed by <span class="fw-bold text-main">Neo Malesa</span> &copy; 2026.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let introTriggered = false;
+
+        // -----------------------------------------------------
+        // ACTION 1: The Mouse/Touch Trigger
+        // -----------------------------------------------------
+        function triggerIntro() {
+            if (introTriggered) return;
+            introTriggered = true;
+
+            const splash = document.getElementById('scroll-splash');
+            const splashLogo = splash.querySelector('.splash-logo');
+            const indicator = splash.querySelector('.scroll-indicator'); // Added this
+            const heroTitle = document.querySelector('.hero-title');
+
+            // 1. Instantly hide the "Move Cursor" text so the user knows they triggered it
+            if (indicator) indicator.style.opacity = '0';
+
+            // 2. DELAY: Wait 500ms (0.5 seconds) before starting the fade-out
+            setTimeout(() => {
+                // Stop the pulsing and trigger the CSS dissolve
+                if (splashLogo) splashLogo.style.animation = 'none';
+                splash.classList.add('dissolve');
+
+                // 3. Wait another 800ms (midway through splash fade) to reveal the title
+                setTimeout(() => {
+                    heroTitle.classList.add('reveal');
+                }, 800);
+            }, 500); 
+        }
+
+        // Listen for ANY slight movement to start the show
+        window.addEventListener('mousemove', triggerIntro, { once: true });
+        window.addEventListener('touchstart', triggerIntro, { once: true });
+        window.addEventListener('scroll', triggerIntro, { once: true }); // Failsafe
+
+        // -----------------------------------------------------
+        // ACTION 2: The Scroll Drag (Pulls Subtitle In)
+        // -----------------------------------------------------
+        function runSubtitleScroll() {
+            if (!introTriggered) return;
+
+            const container = document.querySelector('.hero-scroll-container');
+            const subtitle = document.getElementById('scroll-subtitle');
+            
+            const rect = container.getBoundingClientRect();
+            const scrolledPx = Math.max(0, -rect.top);
+            const vh = window.innerHeight;
+
+            // NEW MATH: Start sliding at 20% of the first viewport height
+            // This makes the text appear much sooner.
+            let startPoint = vh * 0.0; 
+            let endPoint = vh * 0.2;
+            
+            let textProgress = Math.max(0, Math.min(1, (scrolledPx - startPoint) / (endPoint - startPoint)));
+
+            // High-velocity ease-out for a snappier arrival
+            let easedText = 1 - Math.pow(1 - textProgress, 3); 
+            let textX = 100 - (easedText * 100);
+            
+            subtitle.style.transform = `translateX(${textX}vw)`;
+            subtitle.style.opacity = Math.min(1, textProgress * 4);
+        }
+
+        // Lock the subtitle math to the scroll wheel
+        window.addEventListener('scroll', runSubtitleScroll, { passive: true });
+        window.addEventListener('resize', runSubtitleScroll, { passive: true });
+
+
+        const contactForm = document.querySelector('form');
+    
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Stops the page from redirecting to that error screen
+        
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                const name = formData.get('name').split(' ')[0]; // Gets first name
+                contactForm.reset();
+                
+                // Show styled success message
+                const successMsg = document.getElementById('form-success');
+                successMsg.innerHTML = `Thank you, ${name} for your inquiry. Will be in touch with you in no time.`;
+                successMsg.style.display = 'block';
+
+                // Hide it again after 6 seconds
+                setTimeout(() => { successMsg.style.display = 'none'; }, 6000);
+            }
+             else {
+                // Formspree error (e.g., account not verified)
+                alert('Oops! There was a problem. Please check your Formspree settings.');
+            }
+        } catch (error) {
+            // Network error
+            alert('Connection error. Please try again later.');
+        }
+    });
+
+    </script>
 </body>
 </html>
