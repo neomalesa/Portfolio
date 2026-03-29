@@ -51,18 +51,7 @@
             </div>
         </nav>
     </header>
-                
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav align-items-center mt-4 mt-md-0 gap-3 gap-md-0">
-                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Work</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+
 
     <main>
 
@@ -284,36 +273,35 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        let introTriggered = false;
+<script>
+    let introTriggered = false;
 
-        // -----------------------------------------------------
-        // ACTION 1: The Mouse/Touch Trigger
-        // -----------------------------------------------------
-        function triggerIntro() {
-            if (introTriggered) return;
-            introTriggered = true;
+    // ADD THIS LINE RIGHT HERE ↓
+    document.body.classList.add('splash-active');
 
-            const splash = document.getElementById('scroll-splash');
-            const splashLogo = splash.querySelector('.splash-logo');
-            const indicator = splash.querySelector('.scroll-indicator'); // Added this
-            const heroTitle = document.querySelector('.hero-title');
+    function triggerIntro() {
+        if (introTriggered) return;
+        introTriggered = true;
 
-            // 1. Instantly hide the "Move Cursor" text so the user knows they triggered it
-            if (indicator) indicator.style.opacity = '0';
+        const splash = document.getElementById('scroll-splash');
+        const splashLogo = splash.querySelector('.splash-logo');
+        const indicator = splash.querySelector('.scroll-indicator');
+        const heroTitle = document.querySelector('.hero-title');
 
-            // 2. DELAY: Wait 500ms (0.5 seconds) before starting the fade-out
+        if (indicator) indicator.style.opacity = '0';
+
+        setTimeout(() => {
+            if (splashLogo) splashLogo.style.animation = 'none';
+            splash.classList.add('dissolve');
+
+            // ADD THIS LINE RIGHT HERE ↓
+            setTimeout(() => { document.body.classList.remove('splash-active'); }, 1500);
+
             setTimeout(() => {
-                // Stop the pulsing and trigger the CSS dissolve
-                if (splashLogo) splashLogo.style.animation = 'none';
-                splash.classList.add('dissolve');
-
-                // 3. Wait another 800ms (midway through splash fade) to reveal the title
-                setTimeout(() => {
-                    heroTitle.classList.add('reveal');
-                }, 800);
-            }, 500); 
-        }
+                heroTitle.classList.add('reveal');
+            }, 800);
+        }, 500); 
+    }
 
         // Listen for ANY slight movement to start the show
         window.addEventListener('mousemove', triggerIntro, { once: true });
