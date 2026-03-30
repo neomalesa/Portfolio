@@ -433,24 +433,23 @@ document.querySelectorAll('.nav-link').forEach(link => {
         }
 
         
-        // 3. SCROLL TIMING & EASING LOGIC
-        // 3. SCROLL TIMING & EASING LOGIC
+        
 // 3. SCROLL TIMING & EASING LOGIC
         let duration;
         let easingFunction;
 
         if (targetId === '#home') {
-            duration = 600;
-            easingFunction = time => time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+            duration = 150;
+            easingFunction = time => 1 - Math.pow(1 - time, 5);
         } else {
             duration = 800; 
             
             // LINEAR THEN DECELERATE (Ease-Out Cubic)
             // Starts instantly at a steady pace, then glides to a stop at the very end.
-            easingFunction = time => 1 - Math.pow(1 - time, 3); 
+             easingFunction = time => time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
         }   
 
-        let startTime = 2;
+        let startTime = null;
 
         // 4. Animation Loop
         function animationStep(currentTime) {
