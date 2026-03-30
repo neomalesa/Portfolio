@@ -514,12 +514,17 @@ background-color: rgba(var(--bg-color-rgb, 242, 242, 242), 0.8) !important;
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
+
 /* =========================================
    RESPONSIVE DESIGN & MOBILE FIXES
    ========================================= */
 html, body {
     overflow-x: hidden;
     width: 100%;
+}
+
+html {
+    scroll-behavior: auto !important; /* This strictly forbids Bootstrap from ruining your custom scroll speed */
 }
 
 @media (max-width: 991px) {
