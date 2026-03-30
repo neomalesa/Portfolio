@@ -439,14 +439,14 @@ document.querySelectorAll('.nav-link').forEach(link => {
         let easingFunction;
 
         if (targetId === '#home') {
-            duration = 150;
+            duration = 250;
             easingFunction = time => 1 - Math.pow(1 - time, 5);
         } else {
             duration = 800; 
             
             // LINEAR THEN DECELERATE (Ease-Out Cubic)
             // Starts instantly at a steady pace, then glides to a stop at the very end.
-             easingFunction = time => time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+             easingFunction = time => 1 - Math.pow(1 - time, 5);g
         }   
 
         let startTime = null;
