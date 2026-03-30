@@ -149,7 +149,7 @@
                         <div class="project-card">
                             <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=800&auto=format&fit=crop" alt="Netflix UI" class="project-img">
                             <div class="project-body">
-                                <h3 class="project-title">Netflix Clone</h3>
+                                <h3 class="project-title">Netflix Page</h3>
                                 <p class="project-subtitle">HTML | CSS</p>
                                 <div class="project-footer">
                                     <a href="https://neomalesa-netfli-x.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
@@ -172,6 +172,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="project-card">
+                            <img src="https://images.unsplash.com/photo-1566241477600-ac026ad43874?q=80&w=2292&auto=format&fit=crop" alt="twitter/x landing page" class="project-img">
+                            <div class="project-body">
+                                <h3 class="project-title">Twitter/ X Page</h3>
+                                <p class="project-subtitle">HTML | CSS | JS</p>
+                                <div class="project-footer">
+                                    <a href="https://neomalesa.github.io/Twitter-Landing-Page/" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
+                                    <a href="https://github.com/neomalesa/Twitter-Landing-Page.git" class="btn btn-outline-custom" aria-label="View Code"><i class="bi bi-code-slash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col">
                         <div class="project-card">
@@ -179,7 +192,11 @@
                             <div class="project-body">
                                 <h3 class="project-title">Studio Arch.</h3>
                                 <p class="project-subtitle">HTML | CSS | NODE.JS</p>
+                                <div class="project-footer">
+                                <a href="https://neo-malesa-twitter.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">Contact for more info</a>
                             </div>
+                            </div>
+                            
                         </div>
                     </div>
 
@@ -189,19 +206,21 @@
                             <div class="project-body">
                                 <h3 class="project-title">Onyx core</h3>
                                 <p class="project-subtitle">YAML | CamillaDSP | CoreAudio | Biquad Math</p>
+                                <div class="project-footer">
+                                <a href="https://neo-malesa-twitter.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">Contact for more info</a>
                             </div>
+                            </div>
+                            
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="project-card">
-                            <img src="https://images.unsplash.com/photo-1566241477600-ac026ad43874?q=80&w=2292&auto=format&fit=crop" alt="twitter/x landing page" class="project-img">
+                            <img src="https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFydHxlbnwwfHwwfHx8MA%3D%3D" alt="twitter/x landing page" class="project-img">
                             <div class="project-body">
-                                <h3 class="project-title">Twitter/ X Page</h3>
-                                <p class="project-subtitle">HTML | CSS | JS</p>
+                                <h3 class="project-title">FAKE DETECTOR (ARTWORK)</h3>
+                                <p class="project-subtitle">JAVA | JAVAFX </p>
                                 <div class="project-footer">
-                                    <a href="https://neo-malesa-twitter.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">View Site</a>
-                                    <a href="https://github.com/neomalesa/Twitter-Landing-Page.git" class="btn btn-outline-custom" aria-label="View Code"><i class="bi bi-code-slash"></i></a>
+                                    <a href="https://neo-malesa-twitter.netlify.app" class="btn btn-primary-custom flex-grow-1 text-center">Contact for more info</a>
                                 </div>
                             </div>
                         </div>
@@ -378,6 +397,90 @@
             alert('Connection error. Please try again later.');
         }
     });
+
+// =========================================
+// LUXURY SCROLL & BUTTON SHAKE FEEDBACK
+// =========================================
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId.startsWith('#')) return;
+
+        e.preventDefault();
+        
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+
+        // 1. Calculate Positions
+        const headerHeight = document.querySelector('.navbar').offsetHeight; 
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const startPosition = window.pageYOffset;
+        const targetPosition = startPosition + elementPosition - headerHeight;
+        const distance = targetPosition - startPosition;
+
+        // 2. SHAKE LOGIC: Apply to the clicked link (this) instead of the page section
+        if (Math.abs(distance) < 10) {
+            targetElement.classList.remove('shake-active');
+            void targetElement.offsetWidth; // Force browser redraw
+            targetElement.classList.add('shake-active');
+            
+            setTimeout(() => {
+                targetElement.classList.remove('shake-active');
+            }, 500);
+
+            closeMobileMenu();
+            return; // Stop here, don't run the scroll animation
+        }
+
+        
+        // 3. SCROLL TIMING & EASING LOGIC
+        // 3. SCROLL TIMING & EASING LOGIC
+// 3. SCROLL TIMING & EASING LOGIC
+        let duration;
+        let easingFunction;
+
+        if (targetId === '#home') {
+            duration = 600;
+            easingFunction = time => time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+        } else {
+            duration = 800; 
+            
+            // LINEAR THEN DECELERATE (Ease-Out Cubic)
+            // Starts instantly at a steady pace, then glides to a stop at the very end.
+            easingFunction = time => 1 - Math.pow(1 - time, 3); 
+        }   
+
+        let startTime = 2;
+
+        // 4. Animation Loop
+        function animationStep(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            
+            const easeProgress = easingFunction(progress);
+            window.scrollTo(0, startPosition + (distance * easeProgress));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animationStep);
+            }
+        }
+
+        requestAnimationFrame(animationStep);
+        closeMobileMenu();
+    });
+});
+
+// Helper function
+function closeMobileMenu() {
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        if (typeof bootstrap !== 'undefined') {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+        }
+    }
+}
 
     </script>
 </body>
