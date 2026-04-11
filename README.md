@@ -1,8 +1,6 @@
 
 
 
-
-
 ## The Header & Hero Section
 
 
